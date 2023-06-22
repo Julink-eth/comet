@@ -26,6 +26,7 @@ import mainnetWethRelationConfigMap from './deployments/mainnet/weth/relations';
 import polygonRelationConfigMap from './deployments/polygon/usdc/relations';
 import arbitrumRelationConfigMap from './deployments/arbitrum/usdc/relations';
 import arbitrumGoerliRelationConfigMap from './deployments/arbitrum-goerli/usdc/relations';
+import arbitrumUSDCNativeGoerliRelationConfigMap from './deployments/arbitrum-goerli/usdc.n/relations';
 import baseGoerliRelationConfigMap from './deployments/base-goerli/usdc/relations';
 import baseGoerliWethRelationConfigMap from './deployments/base-goerli/weth/relations';
 
@@ -267,7 +268,8 @@ const config: HardhatUserConfig = {
         usdc: arbitrumRelationConfigMap
       },
       'arbitrum-goerli': {
-        usdc: arbitrumGoerliRelationConfigMap
+        usdc: arbitrumGoerliRelationConfigMap, 
+        'usdc.n': arbitrumUSDCNativeGoerliRelationConfigMap
       },
       'base-goerli': {
         usdc: baseGoerliRelationConfigMap,
@@ -336,6 +338,12 @@ const config: HardhatUserConfig = {
         name: 'arbitrum-goerli',
         network: 'arbitrum-goerli',
         deployment: 'usdc',
+        auxiliaryBase: 'goerli'
+      },
+      {
+        name: 'arbitrum-goerli-usdc-native', 
+        network: 'arbitrum-goerli',
+        deployment: 'usdc.n',
         auxiliaryBase: 'goerli'
       },
       {
